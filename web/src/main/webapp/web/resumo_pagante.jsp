@@ -11,7 +11,7 @@
     <title>Status do cadastro</title>
 </head>
 <body>
- Olá, ${nome}
+ Olá, ${pagante.getNome()}
 
 </body>
 </html>
