@@ -1,0 +1,23 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:2.0.0'
+    }
+}
+
+apply plugin: 'war'
+apply plugin: org.akhikhl.gretty.GrettyPlugin
+
+repositories {
+    jcenter()
+}
+
+
+dependencies {
+    compile group: 'postgresql', name: 'postgresql', version: '9.4.1208-jdbc42-atlassian-hosted'
+    compile 'org.hibernate:hibernate-entitymanager:5.2.11.Final'
+    compile 'org.hsqldb:hsqldb:2.3.2'
+}

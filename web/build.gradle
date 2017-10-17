@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        jcenter()
+
+    }
+
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:2.0.0'
+    }
+
+}
+
+apply plugin: org.akhikhl.gretty.GrettyPlugin
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+
+
+dependencies {
+    compile project(':service')
+    providedCompile 'jstl:jstl:1.2'
+    compile group: 'javax.inject', name: 'javax.inject', version: '1'
+    compile(group: 'javax.el', name: 'javax.el-api', version: '2.2.2')
+    compile(group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0')
+    compile(group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version: '2.2.1')
+
+
+
+}
