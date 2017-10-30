@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< HEAD
 	<wb-module deploy-name="PayNow - Projeto">
 		<property name="context-root" value="PayNow - Projeto"/>
+=======
+	<wb-module deploy-name="java">
+		<property name="context-root" value="java"/>
+>>>>>>> ef819c6d5a5c4ec36ec1bcbd5dd1be97e49abea6
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/resources"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
 		<wb-resource deploy-path="/" source-path="src/main/webapp"/>
