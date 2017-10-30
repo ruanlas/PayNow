@@ -16,7 +16,7 @@
 </head>
 <body>
 <h1>Cadastro</h1>
-<form action="/gradle-vraptor4-tomcat/pagador/salva" method="post" enctype='application/json'>
+<form action="/PayNow%20-%20Projeto/pagador/salva" method="post" enctype='application/json'>
     <label>Nome<input type="text" name="pagante.nome"></label><br/>
     <label>CPF<input type="text" name="pagante.cpf"></label><br/>
     <label>CNPJ<input type="text" name="pagante.cnpj"></label><br/>

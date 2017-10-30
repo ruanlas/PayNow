@@ -11,7 +11,7 @@ import java.util.Date;
  * Created by renato on 09/10/17.
  */
 @Entity
-public class Pagador {
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

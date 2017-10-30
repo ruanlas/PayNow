@@ -3,17 +3,17 @@ package br.edu.ifsp.PayNow.web.controller;
 import br.com.caelum.vraptor.*;
 import javax.inject.Inject;
 import static java.util.Arrays.asList;
-import br.edu.ifsp.PayNow.model.repository.PagadorRepository;
-import br.edu.ifsp.PayNow.model.entity.Pagador;
+import br.edu.ifsp.PayNow.model.repository.UsuarioRepository;
+import br.edu.ifsp.PayNow.model.entity.Usuario;
 
 @Controller
-public class PagadorController {
+public class UsuarioController {
 
     @Inject
     private Result result;
 
     @Inject
-    PagadorRepository paganteRepository;
+    UsuarioRepository paganteRepository;
 
     public void lista() {
         result.include("pagandores", paganteRepository.todas());
@@ -23,12 +23,12 @@ public class PagadorController {
 
     }
     
-    public void salva(Pagador pagador) {
+    public void salva(Usuario pagador) {
         paganteRepository.salvar(pagador);
-        result.redirectTo(PagadorController.class).resumo(pagador);
+        result.redirectTo(UsuarioController.class).resumo(pagador);
     }
 
-    public void resumo(Pagador pagador) {
+    public void resumo(Usuario pagador) {
         result.include("resumo", pagador);
     }
 
