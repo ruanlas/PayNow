@@ -12,5 +12,14 @@
 </head>
 <body>
     <h1> Bem vindo ao sistema PayNow</h1>
+    <nav>
+        <!-- Menu temporário -->
+        <h2 >Navegação</h2>
+        <ul>
+           <li> <a href="/PayNow/pagamento/selecionaPagamento">Realizar pagamento aleatório</a></li>
+            <li><a href="/PayNow/usuario/adiciona">Adicionar usuário</a></li>
+        </ul>
+
+    </nav>
 </body>
 </html>
