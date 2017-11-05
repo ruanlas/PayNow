@@ -15,6 +15,10 @@ function togglePessoa() {
 }
 
 $(document).ready(function(){
+	$('#user_cpf').mask('000.000.000-00');
+	$('#user_cnpj').mask('99.999.999/9999-99');
+	$('#user_nasc').mask('99/99/9999');
+	
 	$('#form_add_user').submit(function(){
 		var inputNome = $('#user_name');
 		var inputCpf = $('#user_cpf');
@@ -68,6 +72,7 @@ $(document).ready(function(){
 				$(inputTel).parent().tooltip('hide');
 			})
 		}
+
 		if ($(inputNasc).val() == "") {
 			callTollTip(inputNasc);		
 			

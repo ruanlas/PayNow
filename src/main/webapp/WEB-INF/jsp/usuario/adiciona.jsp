@@ -25,6 +25,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
 	crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js" ></script>
  	<script src="/PayNow/resources/js/validations.js"></script>
 </head>
 <body>
@@ -65,14 +66,14 @@
 				    <div class="field" data-toggle="tooltip">
 				    		<label for="user_cpf">CPF</label>
 				    		<a href"#" class="toggle-pessoa" onclick="togglePessoa();">Pessoa Jurídica</a>
-				    		<input type="number" name="pagante.cpf" class="form-control" id="user_cpf" >
+				    		<input type="text" name="pagante.cpf" class="form-control" id="user_cpf" >
 				    </div>
 			    </div>
 			    <div id="block_cnpj" class="hidden">
 				    <div class="field" data-toggle="tooltip">
 				    		<label for="user_cnpj">CNPJ</label>
 				    		<a href"#" class="toggle-pessoa" onclick="togglePessoa();">Pessoa Física</a>
-				    		<input type="number" name="pagante.cnpj" class="form-control" id="user_cnpj" >
+				    		<input type="text" name="pagante.cnpj" class="form-control" id="user_cnpj" >
 				    </div>
 			    </div>
 			    <div class="field" data-toggle="tooltip">
@@ -85,7 +86,7 @@
 			    </div>
 			    <div class="field" data-toggle="tooltip">
 			    		<label for="user_nasc">Data de Nascimento</label>
-			    		<input type="datetime-local" name="pagante.dataNascimento" class="form-control" id="user_nasc" >
+			    		<input type="text" name="pagante.dataNascimento" class="form-control" id="user_nasc" >
 			    </div>
 			    
 			    <input type="submit" value="Salvar" formenctype="application/json" class="btn btn-secondary btn-lg" />

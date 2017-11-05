@@ -56,19 +56,19 @@
           <hr class="intro-divider">
           <ul class="list-inline intro-social-buttons">
             <li class="list-inline-item">
-              <a href="/PayNow/pagamento/selecionaPagamento" class="btn btn-secondary btn-lg">
+              <a href="/PayNow/pagamento/selecionaPagamento" class="btn  btn-lg">
                 <i class="glyphicon glyphicon-usd"></i>
                 <span class="network-name">Fazer pagamentos</span>
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="/PayNow/pagamento/statusPagamentos" class="btn btn-secondary btn-lg">
+              <a href="/PayNow/pagamento/statusPagamentos" class="btn  btn-lg">
                 <i class="glyphicon glyphicon-usd"></i>
                 <span class="network-name">Pagamentos realizados</span>
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="/PayNow/usuario/adiciona" class="btn btn-secondary btn-lg">
+              <a href="/PayNow/usuario/adiciona" class="btn  btn-lg">
                 <i class="glyphicon glyphicon-user"></i>
                 <span class="network-name">Adicionar usuário</span>
               </a>
