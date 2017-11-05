@@ -27,7 +27,7 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="/">PayNow</a>
+        <a class="navbar-brand" href="/PayNow">PayNow</a>
         <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 		    <span class="sr-only">Toggle navigation</span>
 		    <span class="icon-bar"></span>
@@ -51,7 +51,11 @@
     </nav>
     <main class="bg-site">
       <div class="container">
-      <p>Cadastro feito com sucesso! Bem vindo, </p>
+      <p>Cadastro feito com sucesso! Bem vindo.</p>
+      
+      
+        <p><c:out value="${pagante.nome}" /></p>
+    	
       </div>
     </main>
 </body>
