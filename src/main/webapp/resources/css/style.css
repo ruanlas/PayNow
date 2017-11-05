@@ -132,6 +132,33 @@ body, h1, h2, h3, h4, h5, h6 {
 	cursor: pointer;	
 }
 
+.container-table {
+	padding: 15px;
+	margin: 40px 0;
+}
+
+.payments {
+	width: 100%;
+	border: 1px solid #eee;
+}
+
+.payments th {
+	text-align: center;
+	border-bottom: 1px solid #eee;
+	border-right: 1px solid #eee;
+}
+
+.payments td {
+	border-right: 1px solid #eee;
+}
+
+.payments td:last-child {
+	border-right: 0;
+}
+   
+.payments th:last-child {
+	border-right: 0;
+}
 
 /*
 ****

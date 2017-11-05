@@ -31,7 +31,7 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="/">PayNow</a>
+        <a class="navbar-brand" href="/PayNow">PayNow</a>
         <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 		    <span class="sr-only">Toggle navigation</span>
 		    <span class="icon-bar"></span>
@@ -82,7 +82,7 @@
 			    </div>
 			    <div class="field" data-toggle="tooltip">
 			    		<label for="user_tel">Telefone</label>
-			    		<input type="number" name="pagante.telefone" class="form-control" id="user_tel" >
+			    		<input type="text" name="pagante.telefone" class="form-control" id="user_tel" >
 			    </div>
 			    <div class="field" data-toggle="tooltip">
 			    		<label for="user_nasc">Data de Nascimento</label>

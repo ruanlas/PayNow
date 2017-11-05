@@ -129,6 +129,9 @@ $(document).ready(function(){
 	$('#user_cpf').mask('000.000.000-00');
 	$('#user_cnpj').mask('99.999.999/9999-99');
 	$('#user_nasc').mask('99/99/9999');
+	$('user_tel').mask('(99) 99999-9999');
+	$('#pay_date').mask('99/99');
+	$('#pay_ccv').mask('999');
 	
 	validateUser();
 	validatePayment();

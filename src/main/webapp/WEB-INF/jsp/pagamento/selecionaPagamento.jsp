@@ -83,15 +83,15 @@
 				   <section id="dadosCartao">
 				   		<div class="field" data-toggle="tooltip">
 				   			<label for="pay_numberpay_number">Número do cartão</label>
-				            <input type="text" name="pagamentoRequest.numeroCartao" id="pay_number" class="form-control">
+				            <input type="text" name="pagamentoRequest.numeroCartao" maxlength="16" id="pay_number" class="form-control">
 				   		</div>
 				        <div class="field" data-toggle="tooltip">
 					        <label for="pay_date">DataVencimento</label>
-					        <input type="text" name="pagamentoRequest.dataVencimento" data-mask="00/00" data-mask-selectonfocus="true" id="pay_date" class="form-control">
+					        <input type="text" name="pagamentoRequest.dataVencimento" maxlength="5" data-mask="00/00"  data-mask-selectonfocus="true" id="pay_date" class="form-control">
 				        </div>
 				        <div class="field" data-toggle="tooltip">
 				        		<label for="pay_ccv">CCV (Código de Segurança)</label>
-				            <input type="text" name="pagamentoRequest.digitosVerificadores" id="pay_ccv" class="form-control">
+				            <input type="text" name="pagamentoRequest.digitosVerificadores" maxlength="3" id="pay_ccv" class="form-control">
 				        </div>
 				    </section>
 				    <h3>Valor a pagar: R$ ${pagamentoRequest.valor}</h3>
