@@ -80,7 +80,7 @@ public class PagamentoRequest {
         pagamento.setId(null);
         pagamento.setDataDeRequisicao(new Date());
         pagamento.setPagador(usuarioRepository.comId(Long.parseLong(this.pagador)));
-        pagamento.setRecebedor(usuarioRepository.comId(Long.parseLong(this.pagador)));
+        pagamento.setRecebedor(usuarioRepository.comId(Long.parseLong(this.recebedor)));
         if(MetodoPagamento.valueOf(this.metodoPagamento) == MetodoPagamento.CARTAO_DE_CREDITO) {
             PagamentoCredito pagamentoCredito = new PagamentoCredito();
             pagamentoCredito.setNumeroCartao(this.numeroCartao);

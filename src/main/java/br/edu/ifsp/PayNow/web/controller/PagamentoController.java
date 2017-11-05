@@ -6,6 +6,7 @@ import br.com.caelum.vraptor.Result;
 import br.edu.ifsp.PayNow.model.entity.Pagamento;
 import br.edu.ifsp.PayNow.model.entity.RequisicaoPagamento;
 import br.edu.ifsp.PayNow.model.entity.Usuario;
+import br.edu.ifsp.PayNow.model.enuns.StatusDoPagamento;
 import br.edu.ifsp.PayNow.model.repository.PagamentoRepository;
 import br.edu.ifsp.PayNow.model.repository.UsuarioRepository;
 import br.edu.ifsp.PayNow.web.request.PagamentoRequest;
@@ -69,9 +70,16 @@ public class PagamentoController {
     }
 
     public void confirmacao(PagamentoRequest pagamentoRequest) {
-        pagamentoRepository.salvar(pagamentoRequest.toPagamento(usuarioRepository));
-        result.forwardTo(pagamentoRequest.redirecionarPara);
+        Pagamento pagamento = pagamentoRequest.toPagamento(usuarioRepository);
+        Integer randomIndex = Math.abs(new Random().nextInt(StatusDoPagamento.values().length));
+        pagamento.setStatus(StatusDoPagamento.values()[randomIndex]);
+        pagamentoRepository.salvar(pagamento);
+        result.redirectTo(PagamentoController.class).statusPagamentos();
 
+    }
+
+    public void statusPagamentos() {
+        result.include("pagamentos", pagamentoRepository.todas());
     }
 
 

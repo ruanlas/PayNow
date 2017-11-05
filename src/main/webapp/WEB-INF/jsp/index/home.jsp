@@ -17,6 +17,7 @@
         <h2 >Navegação</h2>
         <ul>
            <li> <a href="/PayNow/pagamento/selecionaPagamento">Realizar pagamento aleatório</a></li>
+            <li><a href="/PayNow/pagamento/statusPagamentos">Pagamentos realizados</a></li>
             <li><a href="/PayNow/usuario/adiciona">Adicionar usuário</a></li>
         </ul>
 
