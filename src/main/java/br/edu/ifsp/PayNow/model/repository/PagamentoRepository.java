@@ -38,5 +38,14 @@ public class PagamentoRepository {
 		}
 		return pagamentosRecebidos;
 	}
+	public List<Pagamento> pagamentosRealizados(Usuario pagador) {
+		List<Pagamento> pagamentosRealizados= new ArrayList<Pagamento>();
+		for (Pagamento pagamento : this.todas()) {
+			if (pagamento.getPagador().getId() == pagador.getId() && pagamento.getStatus() == StatusDoPagamento.APROVADA) {
+				pagamentosRealizados.add(pagamento);
+			}
+		}
+		return pagamentosRealizados;
+	}
 
 }
