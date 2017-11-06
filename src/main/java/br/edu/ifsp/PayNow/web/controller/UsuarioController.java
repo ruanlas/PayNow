@@ -29,7 +29,6 @@ public class UsuarioController {
     }
 
     public void resumo(Usuario pagador) {
-    		System.out.println("Nomeeee" + pagador.getNome());
         result.include("resumo", pagador);
     }
 
