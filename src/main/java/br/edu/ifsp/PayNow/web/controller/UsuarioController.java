@@ -23,16 +23,13 @@ public class UsuarioController {
 
     }
     
-    public void salva(Usuario pagador) {
-        paganteRepository.salvar(pagador);
-        result.redirectTo(UsuarioController.class).resumo(pagador);
+    public void salva(Usuario usuario) {
+        paganteRepository.salvar(usuario);
+        result.redirectTo(UsuarioController.class).resumo(usuario);
     }
 
-    public void resumo(Usuario pagador) {
-        result.include("resumo", pagador);
+    public void resumo(Usuario usuario) {
+        result.include("resumo", usuario);
     }
 
-    public String index() {
-        return "ok";
-    }
 }
