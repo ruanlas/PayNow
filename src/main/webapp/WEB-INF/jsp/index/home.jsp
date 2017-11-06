@@ -35,13 +35,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-item">
-              <a class="nav-link" href="/PayNow/pagamento/selecionaPagamento">Fazer pagamentos</a>
+              <a class="nav-link" href="${linkTo[PagamentoController].selecionaPagamento()}">Fazer pagamentos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/PayNow/pagamento/statusPagamentos">Pagamentos realizados</a>
+              <a class="nav-link" href="${linkTo[PagamentoController].statusPagamentos()}">Pagamentos realizados</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/PayNow/usuario/adiciona">Pagamentos realizados</a>
+              <a class="nav-link" href="${linkTo[UsuarioController].adiciona()}">Pagamentos realizados</a>
             </li>
           </ul>
         </div>
@@ -56,19 +56,19 @@
           <hr class="intro-divider">
           <ul class="list-inline intro-social-buttons">
             <li class="list-inline-item">
-              <a href="/PayNow/pagamento/selecionaPagamento" class="btn  btn-lg">
+              <a href="${linkTo[PagamentoController].selecionaPagamento()}" class="btn  btn-lg">
                 <i class="glyphicon glyphicon-usd"></i>
                 <span class="network-name">Fazer pagamentos</span>
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="/PayNow/pagamento/statusPagamentos" class="btn  btn-lg">
+              <a href="${linkTo[PagamentoController].statusPagamentos()}" class="btn  btn-lg">
                 <i class="glyphicon glyphicon-usd"></i>
                 <span class="network-name">Pagamentos realizados</span>
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="/PayNow/usuario/adiciona" class="btn  btn-lg">
+              <a href="${linkTo[UsuarioController].adiciona()}" class="btn  btn-lg">
                 <i class="glyphicon glyphicon-user"></i>
                 <span class="network-name">Adicionar usuário</span>
               </a>

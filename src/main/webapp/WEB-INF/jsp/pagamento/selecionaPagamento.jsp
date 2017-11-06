@@ -38,13 +38,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-item">
-              <a class="nav-link" href="/PayNow/pagamento/selecionaPagamento">Fazer pagamentos</a>
+              <a class="nav-link" href="${linkTo[PagamentoController].selecionaPagamento()}">Fazer pagamentos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/PayNow/pagamento/statusPagamentos">Pagamentos realizados</a>
+              <a class="nav-link" href="${linkTo[PagamentoController].statusPagamentos()}">Pagamentos realizados</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/PayNow/usuario/adiciona">Pagamentos realizados</a>
+              <a class="nav-link" href="${linkTo[UsuarioController].adiciona()}">Pagamentos realizados</a>
             </li>
           </ul>
         </div>
