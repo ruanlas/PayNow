@@ -41,13 +41,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="/PayNow/pagamento/selecionaPagamento">Fazer pagamentos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+              <a class="nav-link" href="/PayNow/pagamento/statusPagamentos">Pagamentos realizados</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="/PayNow/usuario/adiciona">Pagamentos realizados</a>
             </li>
           </ul>
         </div>
@@ -57,7 +57,7 @@
       <div class="container">
       	<div class="container-form">
 	      	<h1>Cadastro de Usuário</h1>
-			<form action="/paynow/usuario/salva" method="post" enctype='application/json' id="form_add_user">
+			<form action="/PayNow/usuario/salva" method="post" enctype='application/json' id="form_add_user">
 			    <div class="field" data-toggle="tooltip">
 			    		<label for="user_name">Nome</label>
 			    		<input type="text" name="pagante.nome" class="form-control" id="user_name" autofocus="autofocus">

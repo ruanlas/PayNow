@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>Fazer novo pagamento</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="PayNow - pague com simplicidade e eficiência">
     <link href="https://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">
