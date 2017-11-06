@@ -53,7 +53,7 @@
       <div class="container">
       <p>Cadastro feito com sucesso! Bem vindo.</p>
       
-        <p><c:out value=${ resumo.nome } /></p>
+        <p>${resumo.nome}</p>
     	
       </div>
     </main>
