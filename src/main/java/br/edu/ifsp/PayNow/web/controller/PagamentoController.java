@@ -6,6 +6,7 @@ import br.com.caelum.vraptor.Result;
 import br.edu.ifsp.PayNow.model.entity.Pagamento;
 import br.edu.ifsp.PayNow.model.entity.RequisicaoPagamento;
 import br.edu.ifsp.PayNow.model.entity.Usuario;
+import br.edu.ifsp.PayNow.model.enuns.MetodoPagamento;
 import br.edu.ifsp.PayNow.model.enuns.StatusDoPagamento;
 import br.edu.ifsp.PayNow.model.repository.PagamentoRepository;
 import br.edu.ifsp.PayNow.model.repository.UsuarioRepository;
@@ -47,23 +48,12 @@ public class PagamentoController {
     @Transactional
     public void selecionaPagamento() {
         Integer valor = new Random().nextInt(2000);
-        while (valor < 0) {
+        while (valor <= 0) {
             valor = new Random().nextInt(2000);
         }
         PagamentoRequest pagamentoRequest = new PagamentoRequest();
         pagamentoRequest.setRedirecionarPara("http://www.uol.com.br");
         pagamentoRequest.setValor(new BigDecimal(valor/100));
-
-        //Cria Mock
-        Usuario usuario1 = new Usuario();
-        usuario1.setNome("Usuário 1");
-        usuario1.setId(null);
-        Usuario usuario2 = new Usuario();
-        usuario2.setNome("Usuário 2");
-        usuario2.setId(null);
-        usuarioRepository.salvar(usuario1);
-        usuarioRepository.salvar(usuario2);
-
         result.include("usuarios", usuarioRepository.todas());
         result.include("pagamentoRequest", pagamentoRequest);
 
@@ -71,8 +61,21 @@ public class PagamentoController {
 
     public void confirmacao(PagamentoRequest pagamentoRequest) {
         Pagamento pagamento = pagamentoRequest.toPagamento(usuarioRepository);
-        Integer randomIndex = Math.abs(new Random().nextInt(StatusDoPagamento.values().length));
-        pagamento.setStatus(StatusDoPagamento.values()[randomIndex]);
+        List<StatusDoPagamento> statusDoPagamentosCredito = new ArrayList<>();
+        statusDoPagamentosCredito.add(StatusDoPagamento.APROVADA);
+        statusDoPagamentosCredito.add(StatusDoPagamento.NAO_AUTORIZADO);
+        statusDoPagamentosCredito.add(StatusDoPagamento.PENDENTE);
+        List<StatusDoPagamento> statusDoPagamentosDebito = new ArrayList<>();
+        statusDoPagamentosDebito.add(StatusDoPagamento.APROVADA);
+        statusDoPagamentosDebito.add(StatusDoPagamento.PENDENTE);
+        statusDoPagamentosDebito.add(StatusDoPagamento.PAGA_PARCIALMENTE);
+        statusDoPagamentosDebito.add(StatusDoPagamento.VENCIDA);
+
+        if(pagamentoRequest.metodoPagamento.equals(MetodoPagamento.CARTAO_DE_CREDITO.toString())) {
+            pagamento.setStatus(statusDoPagamentosCredito.get(Math.abs(new Random().nextInt(statusDoPagamentosCredito.size()))));
+        } else {
+            pagamento.setStatus(statusDoPagamentosDebito.get(Math.abs(new Random().nextInt(statusDoPagamentosDebito.size()))));
+        }
         pagamentoRepository.salvar(pagamento);
         result.redirectTo(PagamentoController.class).statusPagamentos();
 

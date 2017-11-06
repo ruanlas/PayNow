@@ -63,7 +63,7 @@
 							<td >${e.pagador.nome}</td>
 							<td>${e.recebedor.nome}</td>
 							<td>${e.valor}</td>
-							<td>${e.status}</td>
+							<td>${e.status.toString()}</td>
 						</tr>
 					</c:forEach>
 					</tbody>

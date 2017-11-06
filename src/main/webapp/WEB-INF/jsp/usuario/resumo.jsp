@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: renato
@@ -51,9 +52,15 @@
     </nav>
     <main class="bg-site">
       <div class="container">
-      <p>Cadastro feito com sucesso! Bem vindo.</p>
+          <c:if test="${resumo.id != null }">
+              <p>Seja bem vindo ${resumo.nome}! Seu cadastro foi feito com sucesso!.</p>
+          </c:if>
+
+          <c:if test="${resumo.id == null }">
+              <p>Ops! Você deve ter chegado a essa página por engano. <a href="/PayNow"> Clique aqui para retornar a home.</a></p>
+          </c:if>
       
-        <p>${resumo.nome}</p>
+
     	
       </div>
     </main>

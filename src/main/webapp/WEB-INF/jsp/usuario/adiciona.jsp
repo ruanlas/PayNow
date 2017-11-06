@@ -57,39 +57,39 @@
       <div class="container">
       	<div class="container-form">
 	      	<h1>Cadastro de Usuário</h1>
-			<form action="/PayNow/usuario/salva" method="post" enctype='application/json' id="form_add_user">
+			<form action="/PayNow/usuario/salva" method="post" id="form_add_user">
 			    <div class="field" data-toggle="tooltip">
 			    		<label for="user_name">Nome</label>
-			    		<input type="text" name="pagante.nome" class="form-control" id="user_name" autofocus="autofocus">
+			    		<input type="text" name="usuario.nome" class="form-control" id="user_name" autofocus="autofocus">
 			    </div>
 			    <div id="block_cpf">
 				    <div class="field" data-toggle="tooltip">
 				    		<label for="user_cpf">CPF</label>
 				    		<a href"#" class="toggle-pessoa" onclick="togglePessoa();">Pessoa Jurídica</a>
-				    		<input type="text" name="pagante.cpf" class="form-control" id="user_cpf" >
+				    		<input type="text" name="usuario.cpf" class="form-control" id="user_cpf" >
 				    </div>
 			    </div>
 			    <div id="block_cnpj" class="hidden">
 				    <div class="field" data-toggle="tooltip">
 				    		<label for="user_cnpj">CNPJ</label>
 				    		<a href"#" class="toggle-pessoa" onclick="togglePessoa();">Pessoa Física</a>
-				    		<input type="text" name="pagante.cnpj" class="form-control" id="user_cnpj" >
+				    		<input type="text" name="usuario.cnpj" class="form-control" id="user_cnpj" >
 				    </div>
 			    </div>
 			    <div class="field" data-toggle="tooltip">
 			    		<label for="user_email">E-mail</label>
-			    		<input type="email" name="pagante.email" class="form-control" id="user_email" >
+			    		<input type="email" name="usuario.email" class="form-control" id="user_email" >
 			    </div>
 			    <div class="field" data-toggle="tooltip">
 			    		<label for="user_tel">Telefone</label>
-			    		<input type="text" name="pagante.telefone" class="form-control" id="user_tel" >
+			    		<input type="text" name="usuario.telefone" class="form-control" id="user_tel" >
 			    </div>
 			    <div class="field" data-toggle="tooltip">
 			    		<label for="user_nasc">Data de Nascimento</label>
-			    		<input type="text" name="pagante.dataNascimento" class="form-control" id="user_nasc" >
+			    		<input type="text" name="usuario.dataNascimento" class="form-control" id="user_nasc" >
 			    </div>
 			    
-			    <input type="submit" value="Salvar" formenctype="application/json" class="btn btn-secondary btn-lg" />
+			    <input type="submit" value="Salvar"  class="btn btn-secondary btn-lg" />
 			</form>
       	</div>
       </div>
