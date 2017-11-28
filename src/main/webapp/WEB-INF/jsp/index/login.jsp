@@ -50,8 +50,8 @@
           <h3>Sua plataforma de pagamentos</h3>
           <hr class="intro-divider">
          <form>
-             <label>Usuário
-                <input type="text" name="user" placeholder="Usuário">
+             <label>Email
+                <input type="text" name="email" placeholder="Email">
              </label>
              <label>Senha
                  <input type="password" name="senha" placeholder="Senha">

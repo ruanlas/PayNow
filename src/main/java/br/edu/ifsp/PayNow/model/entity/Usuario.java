@@ -22,6 +22,7 @@ public class Usuario {
     private String telefone;
     private Date dataDeCadastro;
     private String dataNascimento;
+    private String senha;
 
     public String getNome() {
         return nome;
