@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <html>
 <head>
     <title>Bem vindo ao sistema PayNow</title>
@@ -35,13 +36,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-item">
-              <a class="nav-link" href="${linkTo[PagamentoController].selecionaPagamento()}">Fazer pagamentos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="${linkTo[PagamentoController].statusPagamentos()}">Pagamentos realizados</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="${linkTo[IndexController].adiciona()}">Pagamentos realizados</a>
+              <a class="nav-link"href="${pageContext.request.contextPath}/index/adiciona">Realizar cadastro</a>
             </li>
           </ul>
         </div>
@@ -54,26 +49,14 @@
           <h1>PayNow</h1>
           <h3>Sua plataforma de pagamentos</h3>
           <hr class="intro-divider">
-          <ul class="list-inline intro-social-buttons">
-            <li class="list-inline-item">
-              <a href="${linkTo[PagamentoController].selecionaPagamento()}" class="btn  btn-lg">
-                <i class="glyphicon glyphicon-usd"></i>
-                <span class="network-name">Fazer pagamentos</span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="${linkTo[PagamentoController].statusPagamentos()}" class="btn  btn-lg">
-                <i class="glyphicon glyphicon-usd"></i>
-                <span class="network-name">Pagamentos realizados</span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="${linkTo[IndexController].adiciona()}" class="btn  btn-lg">
-                <i class="glyphicon glyphicon-user"></i>
-                <span class="network-name">Adicionar usuário</span>
-              </a>
-            </li>
-          </ul>
+         <form>
+             <label>Usuário
+                <input type="text" name="user" placeholder="Usuário">
+             </label>
+             <label>Senha
+                 <input type="password" name="senha" placeholder="Senha">
+             </label>
+         </form>
         </div>
       </div>
     </header>

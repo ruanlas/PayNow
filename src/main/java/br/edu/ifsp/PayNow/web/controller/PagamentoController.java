@@ -15,6 +15,9 @@ import br.edu.ifsp.PayNow.web.request.PagamentoRequest;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -59,7 +62,7 @@ public class PagamentoController {
 
     }
 
-    public void confirmacao(PagamentoRequest pagamentoRequest) {
+    public void confirmacao(PagamentoRequest pagamentoRequest) throws ParseException {
         Pagamento pagamento = pagamentoRequest.toPagamento(usuarioRepository);
         List<StatusDoPagamento> statusDoPagamentosCredito = new ArrayList<>();
         statusDoPagamentosCredito.add(StatusDoPagamento.APROVADA);

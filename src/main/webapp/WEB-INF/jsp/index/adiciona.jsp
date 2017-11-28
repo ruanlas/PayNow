@@ -1,14 +1,18 @@
 <%--
   Created by IntelliJ IDEA.
   User: renato
-  Date: 25/10/17
-  Time: 20:07
+  Date: 21/10/17
+  Time: 22:51
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Bem vindo ao sistema PayNow</title>
+    <title>Cadastro de Usuário</title>
+    <%--<script src="/WEB-INF/js/sendRequisition.js" type="application/javascript" ></script>--%>
+    <%--<script type="application/javascript">--%>
+        <%----%>
+    <%--</script>--%>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="PayNow - pague com simplicidade e eficiência">
@@ -21,11 +25,13 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
 	crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js" ></script>
+ 	<script src="/PayNow/resources/js/validations.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="/PayNow/">PayNow</a>
+        <a class="navbar-brand" href="/PayNow">PayNow</a>
         <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 		    <span class="sr-only">Toggle navigation</span>
 		    <span class="icon-bar"></span>
@@ -47,36 +53,46 @@
         </div>
       </div>
     </nav>
-   
-    <header class="bg-site">
+    <main class="bg-site">
       <div class="container">
-        <div class="intro-message">
-          <h1>PayNow</h1>
-          <h3>Sua plataforma de pagamentos</h3>
-          <hr class="intro-divider">
-          <ul class="list-inline intro-social-buttons">
-            <li class="list-inline-item">
-              <a href="${linkTo[PagamentoController].selecionaPagamento()}" class="btn  btn-lg">
-                <i class="glyphicon glyphicon-usd"></i>
-                <span class="network-name">Fazer pagamentos</span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="${linkTo[PagamentoController].statusPagamentos()}" class="btn  btn-lg">
-                <i class="glyphicon glyphicon-usd"></i>
-                <span class="network-name">Pagamentos realizados</span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="${linkTo[IndexController].adiciona()}" class="btn  btn-lg">
-                <i class="glyphicon glyphicon-user"></i>
-                <span class="network-name">Adicionar usuário</span>
-              </a>
-            </li>
-          </ul>
-        </div>
+      	<div class="container-form">
+	      	<h1>Cadastro de Usuário</h1>
+			<form action="/PayNow/usuario/salva" method="post" id="form_add_user">
+			    <div class="field" data-toggle="tooltip">
+			    		<label for="user_name">Nome</label>
+			    		<input type="text" name="usuario.nome" class="form-control" id="user_name" autofocus="autofocus">
+			    </div>
+			    <div id="block_cpf">
+				    <div class="field" data-toggle="tooltip">
+				    		<label for="user_cpf">CPF</label>
+				    		<a href"#" class="toggle-pessoa" onclick="togglePessoa();">Pessoa Jurídica</a>
+				    		<input type="text" name="usuario.cpf" class="form-control" id="user_cpf" >
+				    </div>
+			    </div>
+			    <div id="block_cnpj" class="hidden">
+				    <div class="field" data-toggle="tooltip">
+				    		<label for="user_cnpj">CNPJ</label>
+				    		<a href"#" class="toggle-pessoa" onclick="togglePessoa();">Pessoa Física</a>
+				    		<input type="text" name="usuario.cnpj" class="form-control" id="user_cnpj" >
+				    </div>
+			    </div>
+			    <div class="field" data-toggle="tooltip">
+			    		<label for="user_email">E-mail</label>
+			    		<input type="email" name="usuario.email" class="form-control" id="user_email" >
+			    </div>
+			    <div class="field" data-toggle="tooltip">
+			    		<label for="user_tel">Telefone</label>
+			    		<input type="text" name="usuario.telefone" class="form-control" id="user_tel" >
+			    </div>
+			    <div class="field" data-toggle="tooltip">
+			    		<label for="user_nasc">Data de Nascimento</label>
+			    		<input type="text" name="usuario.dataNascimento" class="form-control" id="user_nasc" >
+			    </div>
+			    
+			    <input type="submit" value="Salvar"  class="btn btn-secondary btn-lg" />
+			</form>
+      	</div>
       </div>
-    </header>
-
+     </main>
 </body>
 </html>
