@@ -4,6 +4,6 @@ import java.io.File;
 
 public class CriaBoleto {
 	
-	//Boleto boleto = new Boleto();
+	Boleto boleto = new Boleto();
 
 }
