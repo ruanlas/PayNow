@@ -1,16 +1,11 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: renato
-  Date: 21/10/17
-  Time: 23:00
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>Cadastrado com sucesso!</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Cadastro de Gerente</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="PayNow - pague com simplicidade e eficiência">
     <link href="https://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">
@@ -52,17 +47,42 @@
     </nav>
     <main class="bg-site">
       <div class="container">
-          <c:if test="${resumo.id != null }">
-              <p>Seja bem vindo ${resumo.nome}! Seu cadastro foi feito com sucesso!.</p>
-          </c:if>
-
-          <c:if test="${resumo.id == null }">
-              <p>Ops! Você deve ter chegado a essa página por engano. <a href="/PayNow"> Clique aqui para retornar a home.</a></p>
-          </c:if>
-      
-
-    	
+      	<div class="container-form">
+	      	<h1>Cadastro de Gerente</h1>
+			<form action="/PayNow/gerente/salva" method="post" id="form_add_gerente">
+			    <div class="field" data-toggle="tooltip">
+			    		<label for="user_name">Nome</label>
+			    		<input type="text" name="gerente.nome" class="form-control" id="gerente_name" autofocus="autofocus">
+			    </div>
+			    <div class="field" data-toggle="tooltip">
+			    		<label for="user_cpf">CPF</label>
+			    		<input type="text" name="gerente.cpf" class="form-control" id="gerente_cpf" >
+				</div>
+				<div class="field" data-toggle="tooltip">
+			    		<label for="user_cpf">Matrícula</label>
+			    		<input type="text" name="gerente.matricula" class="form-control" id="gerente_matricula" >
+				</div>
+			    <div class="field" data-toggle="tooltip">
+			    		<label for="user_email">E-mail</label>
+			    		<input type="email" name="gerente.email" class="form-control" id="gerente_email" >
+			    </div>
+			    <div class="field" data-toggle="tooltip">
+			    		<label for="user_tel">Telefone</label>
+			    		<input type="text" name="gerente.telefone" class="form-control" id="gerente_tel" >
+			    </div>
+			    <div class="field" data-toggle="tooltip">
+			    		<label for="user_tel">Usuario</label>
+			    		<input type="text" name="gerente.usuario" class="form-control" id="gerente_usuario" >
+			    </div>
+			    <div class="field" data-toggle="tooltip">
+			    		<label for="user_tel">Senha</label>
+			    		<input type="text" name="gerente.senha" class="form-control" id="gerente_senha" >
+			    </div>
+			    
+			    <input type="submit" value="Salvar"  class="btn btn-secondary btn-lg" />
+			</form>
+      	</div>
       </div>
-    </main>
+     </main>
 </body>
 </html>
