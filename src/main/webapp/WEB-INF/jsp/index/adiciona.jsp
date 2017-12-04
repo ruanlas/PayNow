@@ -81,7 +81,7 @@
 			    		<input type="email" name="usuario.email" class="form-control" id="user_email" >
 			    </div>
 				<div class="field" data-toggle="tooltip">
-					<label for="user_senha">E-mail</label>
+					<label for="user_senha">Senha</label>
 					<input type="password" name="usuario.senha" class="form-control" id="user_senha" >
 				</div>
 

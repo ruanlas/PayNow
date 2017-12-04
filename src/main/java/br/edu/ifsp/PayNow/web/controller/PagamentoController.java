@@ -1,8 +1,6 @@
 package br.edu.ifsp.PayNow.web.controller;
 
-import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Controller;
-import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.edu.ifsp.PayNow.model.entity.Pagamento;
 import br.edu.ifsp.PayNow.model.entity.Usuario;
@@ -10,16 +8,14 @@ import br.edu.ifsp.PayNow.model.enuns.MetodoPagamento;
 import br.edu.ifsp.PayNow.model.enuns.StatusDoPagamento;
 import br.edu.ifsp.PayNow.model.repository.PagamentoRepository;
 import br.edu.ifsp.PayNow.model.repository.UsuarioRepository;
+import br.edu.ifsp.PayNow.sessao.CacheRepository;
+import br.edu.ifsp.PayNow.sessao.SessaoUsuario;
 import br.edu.ifsp.PayNow.web.request.PagamentoRequest;
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
-import java.math.BigDecimal;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -38,20 +34,22 @@ public class PagamentoController {
     @Inject
     private PagamentoRepository pagamentoRepository;
 
+    @Inject
+    private SessaoUsuario sessaoUsuario;
 
 
     @Transactional
-    public void selecionaPagamento(PagamentoRequest pagamentoRequest) {
-        Integer valor = new Random().nextInt(2000);
-        while (valor <= 0) {
-            valor = new Random().nextInt(2000);
-        }
+    public void selecionaPagamento() {
         result.include("usuarios", usuarioRepository.todas());
-        result.include("pagamentoRequest", pagamentoRequest);
+        result.include("pagamentoRequest", CacheRepository.getPagamentoRequestMap(sessaoUsuario.getUsuario()));
 
     }
 
     public void confirmacao(PagamentoRequest pagamentoRequest) throws ParseException {
+        if(pagamentoRequest == null) {
+            result.redirectTo(IndexController.class).home();
+        }
+        CacheRepository.retirarPagamentoDaSessao(sessaoUsuario.getUsuario());
         Pagamento pagamento = pagamentoRequest.toPagamento(usuarioRepository);
         List<StatusDoPagamento> statusDoPagamentosCredito = new ArrayList<>();
         statusDoPagamentosCredito.add(StatusDoPagamento.APROVADA);

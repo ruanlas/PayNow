@@ -45,7 +45,7 @@ public class IndexController  {
             result.notFound();
         }
         if(usuario.getSenha().equals(convertToMD5(senha))) {
-            sessaoUsuario.fazerLogin();
+            sessaoUsuario.fazerLogin(usuario.getEmail());
         }
         result.redirectTo(IndexController.class).home();
     }

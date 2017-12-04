@@ -1,29 +1,39 @@
 package br.edu.ifsp.PayNow.sessao;
 
+
+
 import br.edu.ifsp.PayNow.web.request.PagamentoRequest;
 
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 @SessionScoped
 public class SessaoUsuario implements Serializable {
 
 	private long serialVersionUID;
 
-	private boolean logado = false;
+	private String usuario;
 
-	public void fazerLogin() {
-		logado = true;
+
+	public void fazerLogin(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public void fazerLogout() {
-		logado = false;
+		usuario = null;
 	}
 
 	public boolean estahLogado() {
-		return logado;
+		return usuario != null;
 	}
 
-	public PagamentoRequest pagamentoRequest;
+	public String getUsuario() {
+		return usuario;
+	}
+
+
+
 
 }

@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+
 import br.edu.ifsp.PayNow.model.entity.Usuario;
 
 
@@ -26,7 +28,12 @@ public class UsuarioRepository {
 	}
 
 	public Usuario buscaPorEmail(String email) {
-		return (Usuario) em.createQuery("FROM " + Usuario.class.getSimpleName() + " where email like '%" + email + "%'").getSingleResult();
+		try {
+			return (Usuario) em.createQuery("FROM " + Usuario.class.getSimpleName() + " where email like '%" + email + "%'").getSingleResult();
+
+		} catch (NoResultException ex) {
+			return null;
+		}
 	}
 
 }
