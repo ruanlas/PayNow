@@ -27,7 +27,7 @@ public class CriaBoleto {
 	public static void main(String[] args) {
 
 		/*
-		 * INFORMANDO DADOS SOBRE O CEDENTE.
+		 * INFORMANDO DADOS SOBRE O CEDENTE .
 		 */
 		Cedente cedente = new Cedente("PROJETO JRimum", "00.000.208/0001-00");
 
