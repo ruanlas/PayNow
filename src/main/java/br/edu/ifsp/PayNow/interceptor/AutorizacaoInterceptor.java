@@ -8,6 +8,7 @@ import br.com.caelum.vraptor.interceptor.SimpleInterceptorStack;
 import br.edu.ifsp.PayNow.sessao.SessaoUsuario;
 import br.edu.ifsp.PayNow.web.controller.IndexController;
 import br.edu.ifsp.PayNow.web.controller.PagamentoController;
+import br.edu.ifsp.PayNow.web.controller.PagamentoEndPoint;
 import br.edu.ifsp.PayNow.web.controller.UsuarioController;
 
 import javax.inject.Inject;
@@ -25,6 +26,9 @@ public class AutorizacaoInterceptor {
 	private IndexController indexController;
 
 	@Inject
+	private PagamentoEndPoint pagamentoEndPoint;
+
+	@Inject
 	private SessaoUsuario sessao;
 
 	@Inject
@@ -34,7 +38,7 @@ public class AutorizacaoInterceptor {
 	public void intercept(SimpleInterceptorStack stack,
 			ControllerInstance controllerInstance) {
 		System.out.println("Passou pelo intercept!");
-		if (controllerInstance.getController().equals(indexController) ||
+		if (controllerInstance.getController().equals(indexController) || controllerInstance.getController().equals(pagamentoEndPoint) ||
 				sessao.estahLogado()) {
 			stack.next();
 		} else {

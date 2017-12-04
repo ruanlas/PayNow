@@ -25,4 +25,8 @@ public class UsuarioRepository {
 				Usuario.class).getResultList();
 	}
 
+	public Usuario buscaPorEmail(String email) {
+		return (Usuario) em.createQuery("FROM " + Usuario.class.getSimpleName() + " where email like '%" + email + "%'").getSingleResult();
+	}
+
 }

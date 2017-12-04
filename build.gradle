@@ -30,6 +30,7 @@ dependencies {
 
 	compileOnly 'javax.enterprise:cdi-api:2.0'
 	runtime 'org.jboss.weld.servlet:weld-servlet:2.4.5.Final'
+	compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
 	runtime 'org.jboss.weld:weld-core:2.4.5.Final'
 
 	runtime 'org.slf4j:slf4j-log4j12:1.7.5'
@@ -42,6 +43,7 @@ dependencies {
 
 	compile 'org.hibernate:hibernate-entitymanager:5.2.11.Final'
 	runtime 'org.hsqldb:hsqldb:2.3.2'
+//	compile group: 'br.com.caelum.vraptor', name: 'vraptor-quartzjob', version: '4.0.0'
 
 }
 

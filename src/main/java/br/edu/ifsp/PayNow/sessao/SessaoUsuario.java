@@ -1,5 +1,7 @@
 package br.edu.ifsp.PayNow.sessao;
 
+import br.edu.ifsp.PayNow.web.request.PagamentoRequest;
+
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 
@@ -21,5 +23,7 @@ public class SessaoUsuario implements Serializable {
 	public boolean estahLogado() {
 		return logado;
 	}
+
+	public PagamentoRequest pagamentoRequest;
 
 }

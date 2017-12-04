@@ -49,13 +49,14 @@
           <h1>PayNow</h1>
           <h3>Sua plataforma de pagamentos</h3>
           <hr class="intro-divider">
-         <form>
+         <form method="post" action="${linkTo[IndexController].entra()}">
              <label>Email
-                <input type="text" name="email" placeholder="Email">
+                <input class="form-control" type="text" name="email" >
              </label>
              <label>Senha
-                 <input type="password" name="senha" placeholder="Senha">
+                 <input class="form-control" type="password" name="senha" >
              </label>
+             <input type="submit" class="btn btn-primary" value="Entrar">
          </form>
         </div>
       </div>

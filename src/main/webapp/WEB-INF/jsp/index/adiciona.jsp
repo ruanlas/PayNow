@@ -57,7 +57,7 @@
       <div class="container">
       	<div class="container-form">
 	      	<h1>Cadastro de Usuário</h1>
-			<form action="/PayNow/usuario/salva" method="post" id="form_add_user">
+			<form action="${linkTo[IndexController].salva()}" method="post" id="form_add_user">
 			    <div class="field" data-toggle="tooltip">
 			    		<label for="user_name">Nome</label>
 			    		<input type="text" name="usuario.nome" class="form-control" id="user_name" autofocus="autofocus">
@@ -80,6 +80,11 @@
 			    		<label for="user_email">E-mail</label>
 			    		<input type="email" name="usuario.email" class="form-control" id="user_email" >
 			    </div>
+				<div class="field" data-toggle="tooltip">
+					<label for="user_senha">E-mail</label>
+					<input type="password" name="usuario.senha" class="form-control" id="user_senha" >
+				</div>
+
 			    <div class="field" data-toggle="tooltip">
 			    		<label for="user_tel">Telefone</label>
 			    		<input type="text" name="usuario.telefone" class="form-control" id="user_tel" >

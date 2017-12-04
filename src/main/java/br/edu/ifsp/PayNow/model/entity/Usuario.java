@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -23,6 +24,34 @@ public class Usuario {
     private Date dataDeCadastro;
     private String dataNascimento;
     private String senha;
+    private BigDecimal saldo = new BigDecimal(0);
+    private Date dataNegativado;
+    private boolean ehRecebedor = false;
+
+
+    public BigDecimal getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(BigDecimal saldo) {
+        this.saldo = saldo;
+    }
+
+    public Date getDataNegativado() {
+        return dataNegativado;
+    }
+
+    public void setDataNegativado(Date dataNegativado) {
+        this.dataNegativado = dataNegativado;
+    }
+
+    public boolean isEhRecebedor() {
+        return ehRecebedor;
+    }
+
+    public void setEhRecebedor(boolean ehRecebedor) {
+        this.ehRecebedor = ehRecebedor;
+    }
 
     public String getNome() {
         return nome;
@@ -86,5 +115,13 @@ public class Usuario {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 }

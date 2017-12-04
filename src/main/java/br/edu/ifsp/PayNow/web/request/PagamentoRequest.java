@@ -7,14 +7,15 @@ import br.edu.ifsp.PayNow.model.enuns.MetodoPagamento;
 import br.edu.ifsp.PayNow.model.repository.UsuarioRepository;
 
 import javax.inject.Inject;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
  * Created by renato on 25/10/17.
  */
-public class PagamentoRequest {
-    public Long idRequest;
+public class PagamentoRequest implements Serializable {
+    public Long idRequisicao;
     public BigDecimal valor;
     public String redirecionarPara;
     public String recebedor;
@@ -27,12 +28,12 @@ public class PagamentoRequest {
     @Inject
     private UsuarioRepository usuarioRepository;
 
-    public Long getIdRequest() {
-        return idRequest;
+    public Long getIdRequisicao() {
+        return idRequisicao;
     }
 
-    public void setIdRequest(Long idRequest) {
-        this.idRequest = idRequest;
+    public void setIdRequisicao(Long idRequisicao) {
+        this.idRequisicao = idRequisicao;
     }
 
     public BigDecimal getValor() {

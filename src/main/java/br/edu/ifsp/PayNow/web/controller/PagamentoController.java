@@ -1,10 +1,10 @@
 package br.edu.ifsp.PayNow.web.controller;
 
+import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.edu.ifsp.PayNow.model.entity.Pagamento;
-import br.edu.ifsp.PayNow.model.entity.RequisicaoPagamento;
 import br.edu.ifsp.PayNow.model.entity.Usuario;
 import br.edu.ifsp.PayNow.model.enuns.MetodoPagamento;
 import br.edu.ifsp.PayNow.model.enuns.StatusDoPagamento;
@@ -40,23 +40,12 @@ public class PagamentoController {
 
 
 
-//    consumes("application/json")
-//    produces("application/json")
-//    @Post("/api/requerer_pagamento")
-//    public void requererPagamento() {
-//        result.header("ID DA REQUISIÇÃO");
-////        result.redirectTo(PagamentoController.class).selecionaPagamento();
-//    }
-
     @Transactional
-    public void selecionaPagamento() {
+    public void selecionaPagamento(PagamentoRequest pagamentoRequest) {
         Integer valor = new Random().nextInt(2000);
         while (valor <= 0) {
             valor = new Random().nextInt(2000);
         }
-        PagamentoRequest pagamentoRequest = new PagamentoRequest();
-        pagamentoRequest.setRedirecionarPara("http://www.uol.com.br");
-        pagamentoRequest.setValor(new BigDecimal(valor/100));
         result.include("usuarios", usuarioRepository.todas());
         result.include("pagamentoRequest", pagamentoRequest);
 
@@ -79,6 +68,11 @@ public class PagamentoController {
         } else {
             pagamento.setStatus(statusDoPagamentosDebito.get(Math.abs(new Random().nextInt(statusDoPagamentosDebito.size()))));
         }
+
+        if (pagamento.getStatus() == StatusDoPagamento.APROVADA) {
+            Usuario recebedor = pagamento.getRecebedor();
+            recebedor.setSaldo(recebedor.getSaldo().add(pagamento.getValor()));
+        }
         pagamentoRepository.salvar(pagamento);
         result.redirectTo(PagamentoController.class).statusPagamentos();
 
@@ -87,6 +81,7 @@ public class PagamentoController {
     public void statusPagamentos() {
         result.include("pagamentos", pagamentoRepository.todas());
     }
+
 
 
 }

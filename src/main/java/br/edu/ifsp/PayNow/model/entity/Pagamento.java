@@ -24,6 +24,7 @@ public class Pagamento {
     private StatusDoPagamento status;
     private BigDecimal valor;
     private Date dataDeRequisicao = new Date();
+    private String idVendaRecebedor;
 
 
 
