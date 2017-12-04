@@ -46,6 +46,9 @@
             <li class="nav-item">
               <a class="nav-link" href="${linkTo[IndexController].adiciona()}">Adicionar usuário</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="${linkTo[GerenteController].adiciona()}">Adicionar gerente</a>
+            </li>
           </ul>
         </div>
       </div>

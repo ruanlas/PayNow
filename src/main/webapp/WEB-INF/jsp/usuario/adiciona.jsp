@@ -1,11 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%--
+  Created by IntelliJ IDEA.
+  User: renato
+  Date: 21/10/17
+  Time: 22:51
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Cadastro de Gerente</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Cadastro de Usuário</title>
+    <%--<script src="/WEB-INF/js/sendRequisition.js" type="application/javascript" ></script>--%>
+    <%--<script type="application/javascript">--%>
+        <%----%>
+    <%--</script>--%>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="PayNow - pague com simplicidade e eficiência">
     <link href="https://fonts.googleapis.com/css?family=Cantarell" rel="stylesheet">
@@ -51,35 +59,37 @@
     <main class="bg-site">
       <div class="container">
       	<div class="container-form">
-	      	<h1>Cadastro de Gerente</h1>
-			<form action="/PayNow/gerente/salva" method="post" id="form_add_gerente">
+	      	<h1>Cadastro de Usuário</h1>
+			<form action="/PayNow/usuario/salva" method="post" id="form_add_user">
 			    <div class="field" data-toggle="tooltip">
 			    		<label for="user_name">Nome</label>
-			    		<input type="text" name="gerente.nome" class="form-control" id="gerente_name" autofocus="autofocus">
+			    		<input type="text" name="usuario.nome" class="form-control" id="user_name" autofocus="autofocus">
+			    </div>
+			    <div id="block_cpf">
+				    <div class="field" data-toggle="tooltip">
+				    		<label for="user_cpf">CPF</label>
+				    		<a href"#" class="toggle-pessoa" onclick="togglePessoa();">Pessoa Jurídica</a>
+				    		<input type="text" name="usuario.cpf" class="form-control" id="user_cpf" >
+				    </div>
+			    </div>
+			    <div id="block_cnpj" class="hidden">
+				    <div class="field" data-toggle="tooltip">
+				    		<label for="user_cnpj">CNPJ</label>
+				    		<a href"#" class="toggle-pessoa" onclick="togglePessoa();">Pessoa Física</a>
+				    		<input type="text" name="usuario.cnpj" class="form-control" id="user_cnpj" >
+				    </div>
 			    </div>
 			    <div class="field" data-toggle="tooltip">
-			    		<label for="user_cpf">CPF</label>
-			    		<input type="text" name="gerente.cpf" class="form-control" id="gerente_cpf" >
-				</div>
-				<div class="field" data-toggle="tooltip">
-			    		<label for="user_cpf">Matrícula</label>
-			    		<input type="text" name="gerente.matricula" class="form-control" id="gerente_matricula" >
-				</div>
-			    <div class="field" data-toggle="tooltip">
 			    		<label for="user_email">E-mail</label>
-			    		<input type="email" name="gerente.email" class="form-control" id="gerente_email" >
+			    		<input type="email" name="usuario.email" class="form-control" id="user_email" >
 			    </div>
 			    <div class="field" data-toggle="tooltip">
 			    		<label for="user_tel">Telefone</label>
-			    		<input type="text" name="gerente.telefone" class="form-control" id="gerente_tel" >
+			    		<input type="text" name="usuario.telefone" class="form-control" id="user_tel" >
 			    </div>
 			    <div class="field" data-toggle="tooltip">
-			    		<label for="user_tel">Usuario</label>
-			    		<input type="text" name="gerente.usuario" class="form-control" id="gerente_usuario" >
-			    </div>
-			    <div class="field" data-toggle="tooltip">
-			    		<label for="user_tel">Senha</label>
-			    		<input type="text" name="gerente.senha" class="form-control" id="gerente_senha" >
+			    		<label for="user_nasc">Data de Nascimento</label>
+			    		<input type="text" name="usuario.dataNascimento" class="form-control" id="user_nasc" >
 			    </div>
 			    
 			    <input type="submit" value="Salvar"  class="btn btn-secondary btn-lg" />

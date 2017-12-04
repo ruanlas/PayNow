@@ -1,14 +1,15 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: renato
-  Date: 25/10/17
-  Time: 20:07
+  Date: 21/10/17
+  Time: 23:00
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Bem vindo ao sistema PayNow</title>
+    <title>Cadastrado com sucesso!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="PayNow - pague com simplicidade e eficiência">
@@ -21,11 +22,13 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
 	crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js" ></script>
+ 	<script src="/PayNow/resources/js/validations.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="/PayNow/">PayNow</a>
+        <a class="navbar-brand" href="/PayNow">PayNow</a>
         <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 		    <span class="sr-only">Toggle navigation</span>
 		    <span class="icon-bar"></span>
@@ -41,7 +44,7 @@
               <a class="nav-link" href="${linkTo[PagamentoController].statusPagamentos()}">Pagamentos realizados</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="${linkTo[IndexController].adiciona()}">Adicionar usuário</a>
+              <a class="nav-link" href="${linkTo[UsuarioController].adiciona()}">Adicionar usuário</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="${linkTo[GerenteController].adiciona()}">Adicionar gerente</a>
@@ -50,36 +53,19 @@
         </div>
       </div>
     </nav>
-   
-    <header class="bg-site">
+    <main class="bg-site">
       <div class="container">
-        <div class="intro-message">
-          <h1>PayNow</h1>
-          <h3>Sua plataforma de pagamentos</h3>
-          <hr class="intro-divider">
-          <ul class="list-inline intro-social-buttons">
-            <li class="list-inline-item">
-              <a href="${linkTo[PagamentoController].selecionaPagamento()}" class="btn  btn-lg">
-                <i class="glyphicon glyphicon-usd"></i>
-                <span class="network-name">Fazer pagamentos</span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="${linkTo[PagamentoController].statusPagamentos()}" class="btn  btn-lg">
-                <i class="glyphicon glyphicon-usd"></i>
-                <span class="network-name">Pagamentos realizados</span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="${linkTo[IndexController].adiciona()}" class="btn  btn-lg">
-                <i class="glyphicon glyphicon-user"></i>
-                <span class="network-name">Adicionar usuário</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </header>
+          <c:if test="${resumo.id != null }">
+              <p>Seja bem vindo ${resumo.nome}! Seu cadastro foi feito com sucesso!.</p>
+          </c:if>
 
+          <c:if test="${resumo.id == null }">
+              <p>Ops! Você deve ter chegado a essa página por engano. <a href="/PayNow"> Clique aqui para retornar a home.</a></p>
+          </c:if>
+      
+
+    	
+      </div>
+    </main>
 </body>
 </html>
