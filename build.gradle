@@ -10,6 +10,10 @@ buildscript {
 
 repositories {
 	jcenter()
+	maven {
+		url 'http://jrimum.org/maven/content/groups/public/'
+	}
+
 }
 
 apply plugin: 'war'
@@ -43,6 +47,8 @@ dependencies {
 
 	compile 'org.hibernate:hibernate-entitymanager:5.2.11.Final'
 	runtime 'org.hsqldb:hsqldb:2.3.2'
+
+	compile "org.jrimum:jrimum-bopepo:0.2.3-SNAPSHOT"
 //	compile group: 'br.com.caelum.vraptor', name: 'vraptor-quartzjob', version: '4.0.0'
 
 }
