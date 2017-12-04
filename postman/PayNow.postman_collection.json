@@ -1,0 +1,41 @@
+{
+	"info": {
+		"name": "PayNow",
+		"_postman_id": "639d273a-c689-6cf4-21fe-6b62536d39fa",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RequererPagamento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"redirecionarPara\": \"http://www.uol.com.br\",\n\t\"idRequisicao\": 1,\n\t\"recebedor\": \"recebedor@abc.com\",\n\t\"pagador\": \"renatosrib@gmail.com\",\n\t\"valor\": 5.0\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/PayNow/api/nova_compra",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"PayNow",
+						"api",
+						"nova_compra"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
