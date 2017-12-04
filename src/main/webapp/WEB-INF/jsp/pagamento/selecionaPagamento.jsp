@@ -44,7 +44,7 @@
               <a class="nav-link" href="${linkTo[PagamentoController].statusPagamentos()}">Pagamentos realizados</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="${linkTo[IndexController].adiciona()}">Pagamentos realizados</a>
+              <a class="nav-link" href="${linkTo[IndexController].adiciona()}">Adicionar usuário</a>
             </li>
           </ul>
         </div>
@@ -54,25 +54,18 @@
 	<main class="bg-site">
     		<div class="container">
       		<div class="container-form">
-				<form action="/PayNow/pagamento/confirmacao" method="post" id="form_add_payment">
+				<form action="${linkTo[PagamentoController].confirmacao()}" method="post" id="form_add_payment">
 				    <input type="hidden" name="pagamentoRequest.valor" value="${pagamentoRequest.valor}">
 				    <input type="hidden" name="pagamentoRequest.redirecionarPara" value="${pagamentoRequest.redirecionarPara}">
 				    <div class="field" data-toggle="tooltip">
-					    <label for="pay_user"> Pagador</label>
-					    <select name="pagamentoRequest.pagador" id="pay_user"  class="form-control">
-				            <c:forEach var="e" items="${usuarios}">
-				                <option value="${e.id}">${e.nome}</option>
-				            </c:forEach>
-				        </select>
+					    <input type="hidden" name="pagamentoRequest.recebedor" value="${pagamentoRequest.recebedor}" />
+				        <b>Recebedor: </b> ${pagamentoRequest.recebedor}
 				    </div>
-				    <div class="field" data-toggle="tooltip">
-				    		<label for="pay_user2" > Recebedor</label>
-				    		<select name="pagamentoRequest.recebedor" id="pay_user2" class="form-control">
-				            <c:forEach var="e" items="${usuarios}">
-				                <option value="${e.id}">${e.nome}</option>
-				            </c:forEach>
-				        </select>
-				    </div>
+
+					<div class="field" data-toggle="tooltip">
+						<input type="hidden" name="pagamentoRequest.pagador" value="${pagamentoRequest.pagador}" />
+					</div>
+
 				   <div class="field" data-toggle="tooltip">
 				   		<label for="pay_method"> Forma de pagamento</label>
 				   		<select id="metodoPagamento" name="pagamentoRequest.metodoPagamento" onchange="lidarMetodoPagamento(); return false;" id="pay_method" class="form-control">
@@ -82,7 +75,7 @@
 				   </div>
 				   <section id="dadosCartao">
 				   		<div class="field" data-toggle="tooltip">
-				   			<label for="pay_numberpay_number">Número do cartão</label>
+				   			<label for="pay_number">Número do cartão</label>
 				            <input type="text" name="pagamentoRequest.numeroCartao" maxlength="16" id="pay_number" class="form-control">
 				   		</div>
 				        <div class="field" data-toggle="tooltip">

@@ -40,7 +40,7 @@
               <a class="nav-link" href="${linkTo[PagamentoController].statusPagamentos()}">Pagamentos realizados</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="${linkTo[IndexController].adiciona()}">Pagamentos realizados</a>
+              <a class="nav-link" href="${linkTo[IndexController].adiciona()}">Adicionar usuário</a>
             </li>
           </ul>
         </div>

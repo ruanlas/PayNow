@@ -40,8 +40,12 @@ public class PagamentoController {
 
     @Transactional
     public void selecionaPagamento() {
+        PagamentoRequest pagamentoRequest = CacheRepository.getPagamentoRequestMap(sessaoUsuario.getUsuario());
+        if(pagamentoRequest  == null) {
+            result.redirectTo(IndexController.class).home();
+        }
         result.include("usuarios", usuarioRepository.todas());
-        result.include("pagamentoRequest", CacheRepository.getPagamentoRequestMap(sessaoUsuario.getUsuario()));
+        result.include("pagamentoRequest",pagamentoRequest);
 
     }
 
@@ -51,6 +55,9 @@ public class PagamentoController {
         }
         CacheRepository.retirarPagamentoDaSessao(sessaoUsuario.getUsuario());
         Pagamento pagamento = pagamentoRequest.toPagamento(usuarioRepository);
+        if (pagamento.getRecebedor() == null) {
+            throw new IllegalArgumentException("Recebedor inválido");
+        }
         List<StatusDoPagamento> statusDoPagamentosCredito = new ArrayList<>();
         statusDoPagamentosCredito.add(StatusDoPagamento.APROVADA);
         statusDoPagamentosCredito.add(StatusDoPagamento.NAO_AUTORIZADO);
@@ -70,6 +77,8 @@ public class PagamentoController {
         if (pagamento.getStatus() == StatusDoPagamento.APROVADA) {
             Usuario recebedor = pagamento.getRecebedor();
             recebedor.setSaldo(recebedor.getSaldo().add(pagamento.getValor()));
+            recebedor.setEhRecebedor(true);
+            usuarioRepository.salvar(recebedor);
         }
         pagamentoRepository.salvar(pagamento);
         result.redirectTo(PagamentoController.class).statusPagamentos();

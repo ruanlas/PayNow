@@ -80,8 +80,8 @@ public class PagamentoRequest implements Serializable {
         Pagamento pagamento = new Pagamento();;
         pagamento.setId(null);
         pagamento.setDataDeRequisicao(new Date());
-        pagamento.setPagador(usuarioRepository.comId(Long.parseLong(this.pagador)));
-        pagamento.setRecebedor(usuarioRepository.comId(Long.parseLong(this.recebedor)));
+        pagamento.setPagador(usuarioRepository.buscaPorEmail(this.pagador));
+        pagamento.setRecebedor(usuarioRepository.buscaPorEmail(this.recebedor));
         if(MetodoPagamento.valueOf(this.metodoPagamento) == MetodoPagamento.CARTAO_DE_CREDITO) {
             PagamentoCredito pagamentoCredito = new PagamentoCredito();
             pagamentoCredito.setNumeroCartao(this.numeroCartao);
